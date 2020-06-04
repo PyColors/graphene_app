@@ -37,13 +37,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     # This will also make the `graphql_schema` management command available
     'graphene_django',
     'ingredients',
+    'interventions',
+    'users',
+    'django_filters',
 
 ]
 
 MIDDLEWARE = [
+    # From django-cors-headers django package
+    'corsheaders.middleware.CorsMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -127,3 +134,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# From django-cors-headers django package
+CORS_ORIGIN_ALLOW_ALL = True
